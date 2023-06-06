@@ -1,3 +1,6 @@
+import 'package:calc/widgets/equal.dart';
+import 'package:calc/widgets/numbers.dart';
+import 'package:calc/widgets/operatorButton.dart';
 import 'package:flutter/material.dart';
 import 'package:calc/calcMethods.dart';
 
@@ -80,45 +83,107 @@ class _CalculatorWidgetState extends State<CalculatorWidget> {
             child: Container(
               child: Column(
                 children: [
+                  // Inside the CalculatorWidget class
                   Row(
                     children: [
-                      _buildNumberButton('7'),
-                      _buildNumberButton('8'),
-                      _buildNumberButton('9'),
+                      NumberButton(
+                        number: '7',
+                        onPressed: _onNumberPressed,
+                      ),
+                      NumberButton(
+                        number: '8',
+                        onPressed: _onNumberPressed,
+                      ),
+                      NumberButton(
+                        number: '9',
+                        onPressed: _onNumberPressed,
+                      ),
                     ],
                   ),
+
+                  // Inside the CalculatorWidget class
                   Row(
                     children: [
-                      _buildNumberButton('4'),
-                      _buildNumberButton('5'),
-                      _buildNumberButton('6'),
+                      NumberButton(
+                        number: '4',
+                        onPressed: _onNumberPressed,
+                      ),
+                      NumberButton(
+                        number: '5',
+                        onPressed: _onNumberPressed,
+                      ),
+                      NumberButton(
+                        number: '6',
+                        onPressed: _onNumberPressed,
+                      ),
                     ],
                   ),
+
+                  // Inside the CalculatorWidget class
                   Row(
                     children: [
-                      _buildNumberButton('1'),
-                      _buildNumberButton('2'),
-                      _buildNumberButton('3'),
+                      NumberButton(
+                        number: '1',
+                        onPressed: _onNumberPressed,
+                      ),
+                      NumberButton(
+                        number: '2',
+                        onPressed: _onNumberPressed,
+                      ),
+                      NumberButton(
+                        number: '3',
+                        onPressed: _onNumberPressed,
+                      ),
                     ],
                   ),
+
+                  // Inside the CalculatorWidget class
                   Row(
                     children: [
-                      _buildNumberButton('0'),
-                      _buildNumberButton('.'),
-                      _buildNumberButton('C'),
+                      NumberButton(
+                        number: '0',
+                        onPressed: _onNumberPressed,
+                      ),
+                      NumberButton(
+                        number: '.',
+                        onPressed: _onNumberPressed,
+                      ),
+                      NumberButton(
+                        number: 'c',
+                        onPressed: _onNumberPressed,
+                      ),
                     ],
                   ),
+
+                  // Inside the CalculatorWidget class
                   Row(
                     children: [
-                      _buildOperatorButton('+'),
-                      _buildOperatorButton('-'),
-                      _buildOperatorButton('*'),
-                      _buildOperatorButton('/'),
+                      OperatorButton(
+                        operator: '+',
+                        onPressed: _onOperatorPressed,
+                      ),
+                      OperatorButton(
+                        operator: '-',
+                        onPressed: _onOperatorPressed,
+                      ),
+                      OperatorButton(
+                        operator: '*',
+                        onPressed: _onOperatorPressed,
+                      ),
+                      OperatorButton(
+                        operator: '/',
+                        onPressed: _onOperatorPressed,
+                      ),
                     ],
                   ),
+                  // Inside the CalculatorWidget class
+                  // Inside the CalculatorWidget class
                   Row(
                     children: [
-                      _buildEqualButton(),
+                      Equal(
+                        operator: '=',
+                        onPressed: _onEqualPressed,
+                      )
                     ],
                   ),
                 ],
@@ -126,42 +191,6 @@ class _CalculatorWidgetState extends State<CalculatorWidget> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildNumberButton(String number) {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          onPressed: () => _onNumberPressed(number),
-          child: Text(number),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildOperatorButton(String operator) {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          onPressed: () => _onOperatorPressed(operator),
-          child: Text(operator),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildEqualButton() {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          onPressed: _onEqualPressed,
-          child: Text('='),
-        ),
       ),
     );
   }
